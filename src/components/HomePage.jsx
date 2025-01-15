@@ -15,7 +15,7 @@ export default function HomePage() {
     const navigate = useNavigate()
 
     const data = [
-        {name:'Biryani', value : 1},
+        {name:'Biani', value : 1},
         {name:'Regular Thali', value : 2},
         {name:'Noodles', value : 3},
         {name:'Veg Starters', value : 4},
