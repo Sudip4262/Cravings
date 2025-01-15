@@ -1,0 +1,880 @@
+/*Navbar*/
+/*Navbar*/
+
+.NavigationBar{
+  position: sticky ;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  background-color: #FFD5C4;
+  justify-content: space-between;
+}
+
+.NavBarLogo{
+  height: 100%;
+}
+
+.LoginSection{
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+}
+
+.NavBarButtons{
+  height: 70%;
+  width: auto;
+  border-radius: 20px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.NavBarButtons:hover{
+  background-color: #292929;
+}
+
+.NavBarButtonsText{
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+  color: #FFF;
+}
+
+/*Navbar*/
+/*Navbar*/
+
+
+/*HomePage*/
+/*HomePage*/
+
+.WholeContainerHome{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF;
+}
+
+.SearchViewBackground{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  background-color: #FFD5C4;
+}
+
+.SearchView{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:flex-start;
+}
+
+.AddressIcon{
+  color: #FF5B0E;
+  font-size: 20px;
+  font-family: "Outfit", sans-serif ;
+}
+
+.AddressText{
+  color: #4d4d4d;
+  font-size: 14px;
+  font-family: "Outfit", sans-serif ;
+}
+
+.SearchBox{
+  height: 60px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: "Outfit", sans-serif ;
+}
+
+.SearchBoxSugg{
+  max-height: 250px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #000;
+}
+
+.SearchBoxSugg.active{
+  visibility: visible;
+  position:absolute;
+  margin-top: 130px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  padding: 20px;
+}
+.SearchBoxSugg.inactive{
+  visibility:hidden;
+  position: absolute;
+}
+
+.SearchIconBack{
+  display: flex;
+  height: 60px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c1c1c;
+  cursor: pointer;
+}
+
+.SearchIcon{
+  font-size: 25px;
+  color: #FFF;
+}
+
+.HotDealsContainer{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.HotDealsPart{
+  display: flex;
+  flex-direction: column;
+  width: 60% ;
+}
+
+.HotDealsPartItems{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.HotDealsItemBox{
+  display: flex;
+  flex-direction: column;
+  height:200px;
+  width:180px;
+  border-radius: 10px;
+  background-color:#000;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.HotDealsItemBox:hover{
+  opacity: 0.9;
+}
+
+.searchSuggession{
+  width: 100%;
+  cursor: pointer;
+  padding: 10px;
+  padding-left: 20px;
+  margin: 0px;
+  border-radius: 10px;
+}
+
+.searchSuggession:hover{
+  background-color:#1c1c1c;
+}
+
+.SuggessionItem{
+  font-family: "Outfit", sans-serif ;
+  font-size: 20px;
+}
+
+.BannerPart{
+  display: flex;
+  width: 40%;
+}
+
+.Captions{
+  font-family: "Faculty Glyphic", serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1c1c1c;
+  margin: 20px;
+}
+
+.PriceTag{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+  width: 90%;
+  border-radius: 10px;
+  background-color: #FF5B0E;
+  opacity: 0.8;
+  margin-left: -15px;
+  margin-top: 15px;
+}
+
+.CatagoryCaptions{
+  font-family: "Faculty Glyphic", serif ;
+  font-weight: 400;
+  font-size: 20px;
+  color: #1c1c1c;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+.OfferText1{
+  font-family: "Outfit", sans-serif ;
+  color: #FFF;
+}
+
+.OfferText2{
+  font-family: "Outfit", sans-serif ;
+  font-size:24px ;
+  color: #FFF;
+}
+
+
+
+
+/*HomePage*/
+/*HomePage*/
+
+
+/*MenuPage*/
+/*MenuPage*/
+
+.wholeContainerMenu{
+  display: flex;
+  flex-direction: row;
+  background-color: #FFF;
+  align-items:flex-start;
+}
+
+.VegNonvegSection{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.MenuCaptions{
+  font-family: "Faculty Glyphic", serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1c1c1c;
+  margin: 30px;
+  margin-right: 0px;
+}
+
+.MenuItemShowBox{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  border-radius: 10px;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.MenuItemBox{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  border-radius: 10px;
+  /* border: 1px solid black; */
+  background-color: #ebebeb;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.MenuItemBoxDescPart{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.MenuItemBoxImgPart{
+  display: flex;
+  width: 40%;
+}
+
+.MenuImageStyling{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 200px;
+  width: 180px;
+  border-radius: 10px;
+  margin: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.MenuAddCart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 22%;
+  width: 80%;
+  border-radius: 5px;
+  background-color: #f00;
+  margin-bottom: -20px;
+  cursor: pointer;
+}
+
+.MenuAddCart:hover{
+  background-color: #db0000;
+}
+
+.AddCartText{
+  font-family: "Outfit", sans-serif ;
+  font-size: 20px;
+}
+
+.MenuName{
+  font-family: "Faculty Glyphic", serif ;
+  font-size: 24px;
+  color: #1c1c1c;
+}
+
+.Menuprice{
+  font-family: "Outfit", sans-serif ;
+  font-size: 22px;
+  color: #1c1c1c;
+}
+
+.MenuDesc{
+  font-family: "Outfit", sans-serif ;
+  font-size: 16px;
+  color: #1c1c1c;
+}
+
+.AddToCartMenuModal{
+  display: flex;
+  position:fixed;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.MenuModalWholeCard{
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  width: 55%;
+  border-radius: 20px;
+  background-color: #000;
+}
+
+.MenuModalWholeCard2{
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  width: 55%;
+  border-radius: 20px;
+  background-color: #000;
+}
+
+.MenuModalItemPart{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow-y: scroll;
+  width: 100%;
+  height: 70%;
+}
+
+.CartProceedtoBuyBox{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.MenuModalAddtoCart{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+}
+
+.ModalItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+}
+
+.QuantityPart{
+  display: flex;
+  height: 100%;
+  width: 30%;
+  border: 1px solid blueviolet;
+}
+
+.ModalImage{
+  width: 25%;
+  border-radius: 10px;
+}
+
+.ModalProductDesc{
+  display: flex;
+  height: 100%;
+  width: 60%;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.MenuModalCancel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 150px;
+  border-radius: 30px;
+  background-color: #ebebeb;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.MenuModalCancel:hover{
+  background-color: #b8b8b8;
+}
+
+.MenuAddToCart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 150px;
+  border-radius: 30px;
+  background-color:#bd0000 ;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.MenuAddToCart:hover{
+  background-color:#8a0000 ;
+}
+
+.CancelButton{
+  font-family: "Outfit", sans-serif ;
+  font-size: 20px;
+  color: #000;
+}
+
+.AddtoCartButton{
+  font-family: "Outfit", sans-serif ;
+  font-size: 20px;
+  color: #FFF;
+  margin: -3px;
+}
+
+.AddonImageMenu{
+  height: 110px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.AddonBoxMenu{
+  display:flex;
+  height: 180px;
+  width: 160px;
+  border-radius: 10px;
+  flex-direction:column;
+  margin:10px;
+  justify-content:center;
+  align-items:center;
+  cursor: pointer;
+}
+
+.AddonBoxMenu:hover{
+  border: 1px solid white;
+}
+
+.AddonBoxMenuSelected{
+  display:flex;
+  height: 180px;
+  width: 160px;
+  border-radius: 10px;
+  flex-direction:column;
+  margin:10px;
+  justify-content:center;
+  align-items:center;
+  cursor: pointer;
+  border: 2px solid green;
+}
+
+
+
+.addonButtonText{
+  font-family: "Outfit", sans-serif ;
+  font-size: 14px;
+  color: #FFF;
+}
+
+
+/*MenuPage*/
+/*MenuPage*/
+
+
+/*LoginPage*/
+/*LoginPage*/
+
+
+.LoginPageWhole{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+.LoginCredentials{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 300px;
+  border-radius: 20px;
+  background-color: #292929;
+  margin-bottom: 50px;
+}
+
+.LoginCredentialsDetails{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 500px;
+  border-radius: 20px;
+  background-color: #292929;
+  margin-bottom: 50px;
+}
+
+.inputs{
+  height: 50px;
+  width: 80%;
+  background-color: #ebebeb;
+  color: #000;
+  font-family:"Outfit", sans-serif ;
+  font-size: 20px;
+  margin: 15px;
+}
+
+.LoginSubmitButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 40%;
+  margin: 30px;
+  background-color: #000;
+  color: #FFF;
+  font-family:"Outfit", sans-serif ;
+  font-size: 20px;
+}
+
+.LoginNewUser{
+  color: #000;
+  font-family:"Outfit", sans-serif ;
+  font-size: 20px;
+  margin-top: -40px;
+  margin-bottom: 50px;
+  padding: 10px;
+}
+
+.LoginNewUser:hover{
+  color:#ebebeb;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+}
+
+
+.UserDetailsCredentials{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 500px;
+  border-radius: 20px;
+  background-color: #292929;
+  margin-bottom: 50px;
+}
+
+
+
+/*LoginPage*/
+/*LoginPage*/
+
+
+
+/*AccountPage*/
+/*AccountPage*/
+
+.ProfileWhole{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+}
+
+.ProfileEmail{
+  font-family: "Outfit", sans-serif ;
+  color: #000;
+  font-size: 20px;
+}
+
+.ProfileButton{
+  height:70px;
+  width: 400px;
+  background-color:#000;
+  border-radius:20px; 
+  cursor:pointer;
+  margin-top:20px;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ProfileButton:hover{
+  background-color:#292929 ;
+}
+
+.ProfileAddress{
+  font-family: "Outfit", sans-serif ;
+  color: #FFF;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.LogOutButton{
+  height:70px;
+  width:200px;
+  background-color:#000;
+  border-radius:20px;
+  cursor:pointer;
+  margin:20px 
+}
+
+.LogOutButton:hover{
+  background-color: #292929;
+}
+
+/*AccountPage*/
+/*AccountPage*/
+
+
+/*CartPage*/
+/*CartPage*/
+
+.CartPageWhole{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+}
+
+
+.CartItemName{
+  font-family: "Outfit", sans-serif ;
+  font-size: 24px;
+  margin-left: 30px;
+  color: #000;
+}
+
+.CartItemPrice{
+  font-family: "Outfit", sans-serif ;
+  font-size: 20px;
+  margin-left: 30px;
+  color: #000;
+}
+
+.CartItemDesc{
+  font-family: "Outfit", sans-serif ;
+  font-size: 16px;
+  margin-left: 30px;
+  color: #000;
+}
+
+.cartTotalSummary{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  position:fixed;
+  bottom: 0px;
+  background-color: #FF5B0E;
+}
+
+.CartEachitemSpace{
+  display:flex;
+  flex-direction:row ;
+  align-items: center;
+  height:200px;
+  padding: 20px;
+  width: 90%;
+  border-bottom: 1px solid #dedede;
+  background-color:#FFFFFF
+}
+
+.CartImgContainer{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.CartItemShowWhole{
+  display:flex;
+  flex-direction:row ;
+  height:95%;
+  width: 75%;
+  flex-wrap:wrap ;
+  overflow-y:scroll;
+  justify-content: center;
+  align-items: center;
+}
+
+.CartAddonsContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 35%;
+  padding: 20px;
+}
+
+
+.CartAddonNames{
+  font-family: "Outfit", sans-serif ;
+  font-size: 16px;
+  color: #000;
+  margin: 0px;
+}
+
+.CartDeleteView{
+  display: flex;
+  width: 15%;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+}
+
+.CartNumberOfItem{
+  color: #000;
+  font-size: 20px;
+  font-family: "Outfit", sans-serif ;
+}
+
+.CartDeleteButton{
+  display: flex;
+  height: 50px;
+  width: 50px;
+  border-radius: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: #de0000;
+  cursor: pointer;
+}
+
+.CartDeleteButton:hover{
+  background-color: #f00;
+}
+
+.CartTotalProcessWhole{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center ;
+  height: 95%;
+  width: 25%;
+}
+
+.CartTotalProcessBox{
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  width: 90%;
+  background-color: #FFFFFF;
+}
+
+.CartCharges{
+  display: flex;
+  flex-direction: row;
+  height: 20%;
+  width: 100%;
+  border-bottom: 0.5px solid #4a4a4a;
+}
+
+.CartChargesName{
+  display: flex;
+  height: 100%;
+  width: 50%;
+  align-items: center;
+}
+
+.CartChargesPrice{
+  display: flex;
+  height: 100%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.CartChargesNameText{
+  font-family: "Outfit", sans-serif ;
+  font-size: 16px;
+  color: #000;
+  margin-left: 20px;
+}
+
+.CartAddonTotal{
+  font-family: "Outfit", sans-serif ;
+  font-size: 20px;
+  color: #000;
+  margin-left: 20px;
+}
+
+.CartSummarybox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 100%;
+  background-color: #000000;
+  cursor: pointer;
+}
+
+.CartSummarybox:hover{
+  background-color: #212121;
+}
+
+.CartProceedTotal{
+  font-family: "Outfit", sans-serif ;
+  font-size: 24px;
+  color: #FFF;
+}
+
+
+
+/*CartPage*/
+/*CartPage*/
