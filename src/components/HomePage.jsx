@@ -40,7 +40,6 @@ export default function HomePage() {
     const[Loc,setLoc] = useState([])
     const[Cart,setCart] = useState([])
     const[Orders,setOrders] = useState([])
-    const[Search,setSearch] = useState('')
     const[Recom,setRecom] = useState(data)
     const[SearchActive, setSearchActive] = useState('no')
 
