@@ -15,7 +15,7 @@ import OrdersShow from './components/OrdersShow'
 export default function () {
   return (
     <Provider>
-      <BrowserRouter>
+      <BrowserRouter basename="/Cravings">
         <NavBar/>
         <Routes>
           <Route exact path='/' element={<HomePage/>} />
