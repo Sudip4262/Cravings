@@ -7,13 +7,13 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  apiKey: "AIzaSyC5BWuCRZj_VrxqKkcjluYA0Dhu-VcNnBc",
+  authDomain: "cravings-fc942.firebaseapp.com",
   projectId: "cravings-fc942",
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  storageBucket: "cravings-fc942.appspot.com",
+  messagingSenderId: "898506915280",
+  appId: "1:898506915280:web:94f487db92ba095b784dd5",
+  measurementId: "G-7CZ9NH2V2K"
 };
 
 
