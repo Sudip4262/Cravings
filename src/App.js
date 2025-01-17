@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom'
 import { Provider } from "./components/ui/provider"
 
 import HomePage from './components/HomePage'
@@ -15,7 +15,7 @@ import OrdersShow from './components/OrdersShow'
 export default function () {
   return (
     <Provider>
-      <BrowserRouter basename="/Cravings">
+      <HashRouter>
         <NavBar/>
         <Routes>
           <Route exact path='/' element={<HomePage/>} />
@@ -26,7 +26,7 @@ export default function () {
           <Route exact path='/AccountSetupPage' element={<AccountSetupPage/>} />
           <Route exact path='/OrdersShow' element={<OrdersShow/>} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   )
 }
