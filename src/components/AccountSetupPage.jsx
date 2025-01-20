@@ -26,7 +26,6 @@ export default function AccountSetupPage() {
                 address: Add,
                 phone: PhoneNo,
                 email: Email,
-                cart:[''],
                 orders:['']
               }).then(() => {
                 navigate('/')
