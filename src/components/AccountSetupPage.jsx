@@ -27,7 +27,7 @@ export default function AccountSetupPage() {
                 phone: PhoneNo,
                 email: Email,
                 cart:[],
-                orders:['']
+                orders:[]
               }).then(() => {
                 navigate('/')
                 window.location.reload()
