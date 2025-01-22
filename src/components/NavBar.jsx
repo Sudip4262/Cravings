@@ -22,7 +22,7 @@ export default function NavBar() {
 
   return (
     <div className='NavigationBar' style={{height:(window.innerHeight)*10/100}}>
-      <Link to={'/'} ><img src='photos/Logo.svg' className='NavBarLogo' /></Link>
+      <Link to={'/'} ><img src={`${process.env.PUBLIC_URL}/photos/Logo.svg`} className='NavBarLogo' /></Link>
       <div className='LoginSection' >
         <Link className='NavBarButtons' to={'/CartPage'} >
             <p className='NavBarButtonsText'>Cart</p>

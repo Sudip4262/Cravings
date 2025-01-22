@@ -180,7 +180,7 @@ const getData = async() => {
 
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}}
                     to= '/Menu' state = 'RegularThali'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/RegularThali.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/RegularThali.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>119</p>
@@ -191,7 +191,7 @@ const getData = async() => {
                     </Link>
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}}
                     to= '/Menu' state = 'Noodles'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/Noodles.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/Noodles.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>129</p>
@@ -202,7 +202,7 @@ const getData = async() => {
                     </Link>
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}}
                     to= '/Menu' state = 'VegStarters'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/VegStarters.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/VegStarters.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>99</p>
@@ -213,7 +213,7 @@ const getData = async() => {
                     </Link>
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}}
                     to= '/Menu' state = 'NonVegStarters'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/NonVegStarters.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/NonVegStarters.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>159</p>
@@ -224,7 +224,7 @@ const getData = async() => {
                     </Link>
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}}
                     to= '/Menu' state = 'VegMainCourse'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/VegMainCourse.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/VegMainCourse.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>159</p>
@@ -235,7 +235,7 @@ const getData = async() => {
                     </Link>
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}}
                     to= '/Menu' state = 'NonVegMainCourse'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/NonVegMainCourse.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/NonVegMainCourse.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>219</p>
@@ -246,7 +246,7 @@ const getData = async() => {
                     </Link>
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}}
                     to= '/Menu' state = 'FishDishes'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/FishDishes.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/FishDishes.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>189</p>
@@ -257,7 +257,7 @@ const getData = async() => {
                     </Link>
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}}
                     to= '/Menu' state = 'Rolls'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/Rolls.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/Rolls.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>89</p>
@@ -268,7 +268,7 @@ const getData = async() => {
                     </Link>
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}}
                     to= '/Menu' state = 'RiceRoti'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/RiceRoti.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/RiceRoti.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>59</p>
@@ -279,7 +279,7 @@ const getData = async() => {
                     </Link>
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}}
                     to= '/Menu' state = 'Beverages'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/Beverages.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/Beverages.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>129</p>
@@ -290,7 +290,7 @@ const getData = async() => {
                     </Link>
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}}
                     to= '/Menu' state = 'addon'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/Special.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/Special.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>300</p>
