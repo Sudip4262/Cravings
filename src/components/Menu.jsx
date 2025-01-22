@@ -15,6 +15,7 @@ export default function Menu() {
     const location = useLocation()
 
     let Data = location.state;
+    console.log(Data)
 
     const [VegArray, setVegArray] = useState([])
     const [NonvegArray, setNonvegArray] = useState([])
@@ -41,7 +42,21 @@ export default function Menu() {
     
 
     useEffect(() => {
-        getData(Data)
+        if (Data.new) {
+            setImg1(Data.new.img1)
+            setName(Data.new.name)
+            setDesc(Data.new.desc)
+            setPrice(Data.new.offprice)
+            setCatagory(Data.new.catagory)
+            setProductType(Data.new.productType)
+            setAddonArray(Data.new.addonArray)
+            setMenuModal('flex')
+            getData(Data.new.productType)
+            
+        } else {
+            getData(Data)
+            // console.log(Data.productType)
+        }
     },[])
 
 

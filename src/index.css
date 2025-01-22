@@ -139,7 +139,7 @@
 .HotDealsPart{
   display: flex;
   flex-direction: column;
-  width: 60% ;
+  width: 100% ;
 }
 
 .HotDealsPartItems{

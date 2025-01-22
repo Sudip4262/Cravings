@@ -138,11 +138,11 @@ const getData = async() => {
                 <div className='HotDealsContainer' onClick={() => {setSearchActive('no')}} >
                     <div className='HotDealsPart' >
                         <p className='Captions'>Hot Deals:</p>
-                        <div className='HotDealsPartItems' >
+                        <div className='HotDealsPartItems' style={{justifyContent:'flex-start',paddingLeft:50}} >
                             {
                                 HotDeals.map((item) => {
                                     return(
-                                        <Link key={item.name} style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}} state = 'RegularThali'>
+                                        <Link key={item.name} style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}} to={'/Menu'} state = {{new:item}}>
                                             <div className='HotDealsItemBox' style={{backgroundImage:`url('${item.img1}')` , backgroundSize:'cover'}}>
                                                 <div className='PriceTag' >
                                                     <p className='OfferText1'>get it @</p>
@@ -157,7 +157,7 @@ const getData = async() => {
                             }
                         </div>
                     </div>
-                    <div className='BannerPart'></div>
+                    {/* <div className='BannerPart'></div> */}
                 </div>
                 <div className='HotDealsContainer' style={{flexDirection:'column'}} onClick={() => {setSearchActive('no')}} >
                     <p className='Captions'>Our Catagories:</p>
