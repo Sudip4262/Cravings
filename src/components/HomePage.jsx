@@ -168,7 +168,7 @@ const getData = async() => {
                 <div className='HotDealsPartItems' >
                     <Link style={{display:'flex',flexDirection:'column',justifyContent:'center', alignItems:'center'}} 
                     to= '/Menu' state = 'Biryani'>
-                        <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/Biryani.jpg')" , backgroundSize:'cover'}}>
+                        <div className='HotDealsItemBox' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/Biryani.jpg')` , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>239</p>
