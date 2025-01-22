@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link , useLocation } from 'react-router-dom';
+import { Link , useLocation, useNavigate } from 'react-router-dom';
 import { collection, doc, setDoc , getDoc, getDocs,arrayUnion, updateDoc } from "firebase/firestore";
 import { db, auth } from './firebase';
 
@@ -12,6 +12,7 @@ import { Center } from '@chakra-ui/react';
 
 export default function Menu() {
 
+    const navigate = useNavigate()
     const location = useLocation()
 
     let Data = location.state;
@@ -268,7 +269,7 @@ export default function Menu() {
                     }
                 </div>
                 <div className='MenuModalAddtoCart' >
-                    <div className='MenuModalCancel' onClick={() => {setAddOnModal('none') ; setAddonName('') ; setAddonPrice('') }} >
+                    <div className='MenuModalCancel' onClick={() => {setAddOnModal('none') ; setAddonName('') ; setAddonPrice('') ;Data=ProductType; window.location.reload()}} >
                         <p className='CancelButton' >Cancel</p>
                     </div>
                     <div className='MenuAddToCart' onClick={() => { AddToCart(Name,ProductType,Catagory,FinalPrice,Desc, Img1) }} >
