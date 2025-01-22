@@ -170,6 +170,7 @@ const getData = async() => {
                     to= '/Menu' state = 'Biryani'>
                         <div className='HotDealsItemBox' style={{backgroundImage:"url('photos/Biryani.jpg')" , backgroundSize:'cover'}}>
                             <div className='PriceTag' >
+                            <img src='photos\Biryani.jpg' style={{height:100, width:100}} />
                                 <p className='OfferText1'>₹</p>
                                 <p className='OfferText2'>239</p>
                                 <p className='OfferText1'>onwards</p>
