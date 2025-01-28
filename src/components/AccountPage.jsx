@@ -59,10 +59,10 @@ export default function AccountPage() {
           <p className='ProfileAddress' >Address</p>
           <MdOutlineNavigateNext size={30} color='#fff' style={{marginRight:20}} />
         </button>
-        <button className='ProfileButton'>
-          <p className='ProfileAddress' >Orders</p>
+        <Link className='ProfileButton' to={'/OrdersShow'}>
+          <p className='ProfileAddress'  >Orders</p>
           <MdOutlineNavigateNext size={30} color='#fff' style={{marginRight:20}} />
-        </button>
+        </Link>
         <Link className='ProfileButton' to={'/CartPage'} >
           <p className='ProfileAddress' >Cart</p>
           <MdOutlineNavigateNext size={30} color='#fff' style={{marginRight:20}} />
