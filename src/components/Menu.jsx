@@ -100,7 +100,10 @@ export default function Menu() {
         await updateDoc(UserCart, {
             cart: arrayUnion(Arr)
         });
-        window.location.reload()
+        // window.location.reload()
+        setAddOnModal('none')
+        setMenuModal('none')
+        
     }
 
     const OrderAddonArraySet = (name,price) => {
@@ -269,7 +272,7 @@ export default function Menu() {
                     }
                 </div>
                 <div className='MenuModalAddtoCart' >
-                    <div className='MenuModalCancel' onClick={() => {setAddOnModal('none') ; setAddonName('') ; setAddonPrice('') ;Data=ProductType; window.location.reload()}} >
+                    <div className='MenuModalCancel' onClick={() => {setAddOnModal('none'); setMenuModal('none') ; setAddonName('') ; setAddonPrice('') ;Data=ProductType;}} >
                         <p className='CancelButton' >Cancel</p>
                     </div>
                     <div className='MenuAddToCart' onClick={() => { AddToCart(Name,ProductType,Catagory,FinalPrice,Desc, Img1) }} >

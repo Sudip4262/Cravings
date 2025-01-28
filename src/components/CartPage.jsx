@@ -3,6 +3,12 @@ import { db, auth } from './firebase'
 import { useNavigate } from 'react-router-dom'
 import { doc, getDoc, updateDoc, arrayRemove, arrayUnion, deleteField } from 'firebase/firestore'
 import { NumberInputField, NumberInputRoot } from "./ui/number-input"
+import { SetSkeletonView } from '../features/skeletonview/SkeletonView'
+import { HStack, Stack } from "@chakra-ui/react"
+import { Skeleton, SkeletonCircle, SkeletonText} from '../components/ui/skeleton'
+
+import { useSelector, useDispatch } from 'react-redux';
+import { SetCounterValue } from '../features/counter/CounterSlice';
 
 
 import { FaCaretSquareUp } from "react-icons/fa";
@@ -12,13 +18,14 @@ import { GrFormNextLink } from "react-icons/gr";
 export default function CartPage() {
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const[Cart,setCart] = useState([])
   const[ItemTotal,setItemTotal] = useState(0)
   const[MenuModal,setMenuModal] = useState('none')
   const[Name,setName] = useState('')
   const[AddonNames,setAddonNames] = useState('')
-
+  const AuthEmail =  localStorage.getItem("AuthEmail");
 
 
   let charges = [
@@ -42,16 +49,19 @@ export default function CartPage() {
 
 
   useEffect(() => {
+    dispatch(SetCounterValue(AuthEmail))
+    dispatch(SetSkeletonView(true))
     setTimeout(() => {
                 if(auth.currentUser != null){
                   getData()
                 }
-                console.log("Executed after 1 seconds");
+                // console.log("Executed after 1 seconds");
               }, 1000);
   },[])
 
   const getData = async() => {
-    const Ref = doc(db,'Users',auth.currentUser.email)
+    console.log(AuthEmail)
+    const Ref = doc(db,'Users',AuthEmail)
         const docSnap = await getDoc(Ref)
         if (docSnap.exists()) {
           const Data = docSnap.data()
@@ -59,10 +69,10 @@ export default function CartPage() {
           if( Data.cart != null ){
             const sum = Data.cart.reduce((acc, item) => Number(acc) + (Number(item.quantity)*Number(item.price)), 0);
             setItemTotal(sum)
-            console.log(sum)
+            // console.log(sum)
           }
           } else {
-            console.log("No such document!");
+            // console.log("No such document!");
           }
   }
 
@@ -78,17 +88,17 @@ export default function CartPage() {
               quantity:quantity,
               cartId: cartId
           }
-          const UserCart = doc(db, "Users", auth.currentUser.email)
+          const UserCart = doc(db, "Users", AuthEmail)
           await updateDoc(UserCart, {
               cart: arrayRemove(Arr)
           });
-          window.location.reload()
+          getData()
       }
 
       const ArrayQuantityUpdate = async(value,cartId) => {
         try {
-          console.log(value)
-          const UserCart = doc(db, "Users", auth.currentUser.email)
+          // console.log(value)
+          const UserCart = doc(db, "Users", AuthEmail)
           const docSnap = await getDoc(UserCart);
           if (docSnap.exists()) {
             const currentItems = docSnap.data().cart;
@@ -97,9 +107,10 @@ export default function CartPage() {
             )
             await updateDoc(UserCart, { cart: updatedItems });
           }
-          window.location.reload()
+          // window.location.reload()
+          getData()
         } catch (error) {
-          console.log(error)
+          // console.log(error)
         }
     }
 
@@ -107,7 +118,7 @@ export default function CartPage() {
       const d = new Date();
       let time = d.getTime();
       const OrderId = time.toString().slice(-10)
-      const UserCart = doc(db, "Users", auth.currentUser.email)
+      const UserCart = doc(db, "Users", AuthEmail)
       const OrderItems = Cart.map(({ name,quantity, price,Addons }) => ({ name, quantity ,price,Addons }));
       const TotalBill = charges.reduce((sum, item) => Number(sum) + Number(item.value), 0);
       const Arr = {
@@ -137,7 +148,7 @@ export default function CartPage() {
                 Cart.map((item) => {
                   {/* const[Quantity,setQuantity] = useState('') */}
                   return(
-                        <div className='CartEachitemSpace' >
+                        <div className='CartEachitemSpace' key={item.name}>
                           <div className='CartImgContainer'>
                             <img src={item.img1} style={{height:'80%', borderRadius:10, }} />
                             <div style={{display:'flex', flexDirection:'column', height:'100%', justifyContent:'space-around', overflow:'hidden'}} >
@@ -153,7 +164,7 @@ export default function CartPage() {
                             {
                               item.Addons.map((addon) => {
                                 return(
-                                  <p className='CartAddonNames' >&nbsp;&nbsp; | {addon.name}  </p>
+                                  <p className='CartAddonNames' key={addon.name} >&nbsp;&nbsp; | {addon.name}  </p>
                                 )
                               })
                             }
@@ -181,7 +192,7 @@ export default function CartPage() {
                 {
                   charges.map((item) => {
                     return(
-                      <div className='CartCharges' >
+                      <div className='CartCharges' key={item.name} >
                           <div className='CartChargesName' >
                               <p className='CartChargesNameText' >{item.name}</p>
                           </div>
@@ -238,6 +249,11 @@ export default function CartPage() {
       </div>
     )
   } else {
-    console.log("Nothing added in the cart yet")
+    return(
+      <Stack>
+        <SkeletonText noOfLines={1} height="30px" width={(window.innerWidth)*10/100}  />
+        <SkeletonText noOfLines={1} height="20px" width={(window.innerWidth)*30/100}  />
+      </Stack>
+    )
   }
 }

@@ -2,6 +2,11 @@ import React, { use, useEffect , useState} from 'react'
 import { Input } from "@chakra-ui/react"
 import { collection, doc, setDoc , getDoc, getDocs } from "firebase/firestore";
 import { Link , useLocation, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { SetCounterValue } from '../features/counter/CounterSlice';
+import { SetSkeletonView} from '../features/skeletonview/SkeletonView';
+import { HStack, Stack } from "@chakra-ui/react"
+import { Skeleton, SkeletonCircle, SkeletonText} from '../components/ui/skeleton'
 
 import { IoAddCircle } from "react-icons/io5";
 import { LuSearch } from "react-icons/lu";
@@ -13,6 +18,7 @@ import { db, auth } from './firebase';
 export default function HomePage() {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const data = [
         {name:'Biryani', value : 1},
@@ -43,17 +49,22 @@ export default function HomePage() {
     const[Recom,setRecom] = useState(data)
     const[SearchActive, setSearchActive] = useState('no')
     const[HotDeals,setHotDeals] = useState([])
+    const AuthEmail = useSelector((state) => state.counter.value)
+    // console.log(AuthEmail)
 
 
     useEffect (() => {
-        getData()
+        
         setTimeout(() => {
+            getData()
             if(auth.currentUser != null){
-                // console.log(auth.currentUser)
+                localStorage.setItem("AuthEmail", auth.currentUser.email)
+                dispatch(SetCounterValue(localStorage.getItem("AuthEmail")))
                 getAccountData()
+                dispatch(SetSkeletonView(true))
             }
-            console.log("Executed after 1 seconds");
-          }, 1000);
+            // console.log("Executed after 1 seconds");
+          }, 800);
     },[])
 
 
@@ -71,7 +82,7 @@ export default function HomePage() {
             setOrders(Data.orders)
             setPetAdd(Data.address[0].petname)
             setLoc(Data.address[0].loc)
-            console.log(Data.address)
+            // console.log(Data.address)
           } else {
             console.log("No such document!");
           }
@@ -81,7 +92,7 @@ export default function HomePage() {
 const getData = async() => {
     const docRef = doc(db, "Products", "HotDeals");
     const docSnap = await getDoc(docRef);
-    console.log(docSnap.data().items)
+    // console.log(docSnap.data().items)
     setHotDeals(docSnap.data().items)
 }
 
@@ -91,12 +102,12 @@ const getData = async() => {
     let recommendations = data.filter((item) =>{
         return item.name.toLowerCase().includes(searchText)
     })
-    console.log(recommendations)
+    // console.log(recommendations)
     setRecom(recommendations)
   }
 
 
- if (HotDeals !== null) {
+ if (HotDeals.length > 0 ) {
     return (
         <>
             <div className='WholeContainerHome'  >
@@ -305,6 +316,29 @@ const getData = async() => {
         </>
       )
  } else {
-    console.log('Nothing in hotdeals')
+    return (
+        <Stack gap="6" maxW="full" height={window.innerHeight} width={window.innerWidth} style={{marginTop:20}} >
+          <Stack height={(window.innerHeight*30)/100} width={(window.innerWidth*58)/100} style={{alignSelf:'center', justifyContent:'center'}}>
+            <SkeletonText noOfLines={1} height="30px" width={(window.innerWidth)*10/100}  />
+            <SkeletonText noOfLines={1} height="20px" width={(window.innerWidth)*30/100}  />
+            <HStack gap="3" maxW="full" style={{}} >
+              <Skeleton height="60px" style={{width:"80%"}} />
+              <Skeleton height="60px"  style={{width:'15%'}} />
+            </HStack>
+          </Stack>
+
+          <Stack height={(window.innerHeight*70)/100} width="full" >
+            <SkeletonText noOfLines={1} height="50px" width={(window.innerWidth)*15/100} style={{marginLeft:30, marginTop:20}}  />
+            <HStack style={{justifyContent:'space-between'}}>
+              <HStack gap="7" style={{marginTop:30}} >
+                <Skeleton height="200px" width="180px" style={{marginLeft:60}} />
+                <Skeleton height="200px" width="180px" />
+                <Skeleton height="200px" width="180px" />
+              </HStack>
+              <Skeleton height="230px" width={(window.innerWidth*40)/100} style={{marginRight:30}} />
+            </HStack>
+          </Stack>
+        </Stack>
+      )
  }
 }
