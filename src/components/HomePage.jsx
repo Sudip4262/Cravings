@@ -5,6 +5,16 @@ import { Link , useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { SetCounterValue } from '../features/counter/CounterSlice';
 import { SetSkeletonView} from '../features/skeletonview/SkeletonView';
+import { 
+    SetAuthenticationName, 
+    SetAuthenticationEmail, 
+    SetAuthenticationPhone , 
+    SetAuthenticationAddress, 
+    SetAuthenticationCart, 
+    SetAuthenticationOrders, 
+    SetAuthenticationPetName, 
+    SetAuthenticationLocation
+ } from '../features/authenticationData/AuthenticationData';
 import { HStack, Stack } from "@chakra-ui/react"
 import { Skeleton, SkeletonCircle, SkeletonText} from '../components/ui/skeleton'
 
@@ -38,50 +48,45 @@ export default function HomePage() {
         {name:'addon', value : 15},
         ]
 
-    const[Name,setName] = useState('')
-    const[PhoneNo,setPhoneNo] = useState('')
-    const[Email,setEmail] = useState('')
-    const[Address,setAddress] = useState([])
-    const[PetAdd,setPetAdd] = useState([])
-    const[Loc,setLoc] = useState([])
-    const[Cart,setCart] = useState([])
-    const[Orders,setOrders] = useState([])
+
     const[Recom,setRecom] = useState(data)
     const[SearchActive, setSearchActive] = useState('no')
     const[HotDeals,setHotDeals] = useState([])
-    const AuthEmail = useSelector((state) => state.counter.value)
+    const AuthEmail = useSelector((state) => state.authenticationData.email)
+    const PetAddress = useSelector((state) => state.authenticationData.petname)
+    const Location = useSelector((state) => state.authenticationData.location)
     // console.log(AuthEmail)
+    // console.log(Location)
 
 
     useEffect (() => {
-        
+        getData()
         setTimeout(() => {
-            getData()
+            console.log(auth.currentUser)
             if(auth.currentUser != null){
-                localStorage.setItem("AuthEmail", auth.currentUser.email)
-                dispatch(SetCounterValue(localStorage.getItem("AuthEmail")))
-                getAccountData()
+                dispatch(SetCounterValue(auth.currentUser.email))
+                getAccountData(auth.currentUser.email)
                 dispatch(SetSkeletonView(true))
             }
             // console.log("Executed after 1 seconds");
-          }, 800);
+          }, 400);
     },[])
 
 
-    const getAccountData = async() => {
-        const Ref = doc(db,'Users',auth.currentUser.email)
+    const getAccountData = async(Email) => {
+        const Ref = doc(db,'Users',Email)
         const docSnap = await getDoc(Ref)
         if (docSnap.exists()) {
           const Data = docSnap.data()
             // console.log("Document data:", Data);
-            setName(Data.name)
-            setPhoneNo(Data.phone)
-            setEmail(Data.email)
-            setAddress(Data.address)
-            setCart(Data.cart)
-            setOrders(Data.orders)
-            setPetAdd(Data.address[0].petname)
-            setLoc(Data.address[0].loc)
+            dispatch(SetAuthenticationName(Data.name))
+            dispatch(SetAuthenticationEmail(Data.email))
+            dispatch(SetAuthenticationPhone(Data.phone))
+            dispatch(SetAuthenticationAddress(Data.address))
+            dispatch(SetAuthenticationCart(Data.cart))
+            dispatch(SetAuthenticationOrders(Data.orders))
+            dispatch(SetAuthenticationPetName(Data.address[0].petname))
+            dispatch(SetAuthenticationLocation(Data.address[0].loc))
             // console.log(Data.address)
           } else {
             console.log("No such document!");
@@ -114,14 +119,14 @@ const getData = async() => {
                 <div className='SearchViewBackground' style={{height:(window.innerHeight)*35/100}} >
                     <div className='SearchView' >
                         <div style={{display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center'}} >
-                            <p className='AddressIcon'>{PetAdd != '' ? PetAdd : 'Address' }  |</p>
-                            {PetAdd != '' ?
+                            <p className='AddressIcon'>{PetAddress != '' ? PetAddress : 'Address' }  |</p>
+                            {PetAddress != '' ?
                             <FaCaretSquareDown className='AddressIcon'/>
                             :
                             <IoAddCircle className='AddressIcon'/>
                             }
                         </div>
-                        <p className='AddressText' >{Loc != '' ? Loc : 'Your address will be shown here...' }</p>
+                        <p className='AddressText' >{Location != '' ? Location : 'Your address will be shown here...' }</p>
                         <div style={{display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center'}} >
                             <Input className='SearchBox' placeholder='e.g.,Biryani' variant={"subtle"} style={{width:(window.innerWidth)*50/100}} 
                             onChange={(txt) => {

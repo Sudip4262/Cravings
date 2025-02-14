@@ -19,7 +19,7 @@ export default function AccountPage() {
     const location = useLocation()
 
     useEffect(() => {
-      console.log(location.state)
+      // console.log(location.state)
       DataCall(location.state.email)
     },[])
 
@@ -28,7 +28,7 @@ export default function AccountPage() {
         const docSnap = await getDoc(Ref)
         if (docSnap.exists()) {
           const Data = docSnap.data()
-            console.log(Data)
+            // console.log(Data)
             setName(Data.name)
             setEmail(Data.email)
           } else {

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { db, auth } from './firebase'
 import { useNavigate } from 'react-router-dom'
-import { doc, getDoc, updateDoc, arrayRemove, arrayUnion, deleteField } from 'firebase/firestore'
+import { doc, getDoc, updateDoc, setDoc, arrayRemove, arrayUnion, deleteField } from 'firebase/firestore'
 import { NumberInputField, NumberInputRoot } from "./ui/number-input"
 import { SetSkeletonView } from '../features/skeletonview/SkeletonView'
 import { HStack, Stack } from "@chakra-ui/react"
 import { Skeleton, SkeletonCircle, SkeletonText} from '../components/ui/skeleton'
+import moment from 'moment'
 
 import { useSelector, useDispatch } from 'react-redux';
 import { SetCounterValue } from '../features/counter/CounterSlice';
@@ -118,15 +119,25 @@ export default function CartPage() {
       const d = new Date();
       let time = d.getTime();
       const OrderId = time.toString().slice(-10)
+      let date = moment().format('DD-MM-YYYY')
+      let OrderTime = moment().format('hh:mm:ss a')
       const UserCart = doc(db, "Users", AuthEmail)
-      const OrderItems = Cart.map(({ name,quantity, price,Addons }) => ({ name, quantity ,price,Addons }));
+      const OrderItems = Cart.map(({ name,quantity, price,Addons,img1 }) => ({ name, quantity ,price,Addons,img1 }));
       const TotalBill = charges.reduce((sum, item) => Number(sum) + Number(item.value), 0);
       const Arr = {
         orderId : OrderId,
         orderItems : OrderItems,
         itemTotal : ItemTotal,
-        totalBill: TotalBill,
+        totalBill: TotalBill.toFixed(2),
+        orderDate : date,
+        orderTime : OrderTime ,
+        orderStatus : 'pending'
       }
+
+      const cityRef = doc(db, 'Orders', 'PendingOrders',date,OrderId);
+      await setDoc(cityRef, {
+        Orders : Arr
+      });
 
       await updateDoc(UserCart, {
           orders: arrayUnion(Arr)

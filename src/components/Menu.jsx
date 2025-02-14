@@ -99,6 +99,8 @@ export default function Menu() {
         const UserCart = doc(db, "Users", auth.currentUser.email)
         await updateDoc(UserCart, {
             cart: arrayUnion(Arr)
+        }).then(() => {
+            setOrderAddonArray([])
         });
         // window.location.reload()
         setAddOnModal('none')
