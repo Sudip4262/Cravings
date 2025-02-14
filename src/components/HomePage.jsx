@@ -69,7 +69,7 @@ export default function HomePage() {
                 dispatch(SetSkeletonView(true))
             }
             // console.log("Executed after 1 seconds");
-          }, 400);
+          }, 600);
     },[])
 
 
