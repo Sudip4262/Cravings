@@ -26,7 +26,7 @@ export default function CartPage() {
   const[MenuModal,setMenuModal] = useState('none')
   const[Name,setName] = useState('')
   const[AddonNames,setAddonNames] = useState('')
-  const AuthEmail =  localStorage.getItem("AuthEmail");
+  const AuthEmail = useSelector((state) => state.authenticationData.email)
 
 
   let charges = [
