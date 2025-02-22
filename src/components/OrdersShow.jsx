@@ -2,6 +2,8 @@ import React ,{ useState, useEffect } from 'react'
 import { db } from './firebase';
 import { doc,getDoc } from 'firebase/firestore';
 import { HiOutlineLightBulb } from "react-icons/hi";
+import { useSelector, useDispatch } from 'react-redux';
+
 
 
 export default function OrdersShow() {
@@ -9,7 +11,7 @@ export default function OrdersShow() {
 
   const[OrderedList,setOrderedList] = useState([])
   const[MenuModal,setMenuModal] = useState('none')
-  const AuthEmail = localStorage.getItem("AuthEmail");
+  const AuthEmail = useSelector((state) => state.authenticationData.email)
 
   useEffect(() => {
     getData(AuthEmail);

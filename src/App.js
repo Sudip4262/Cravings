@@ -20,7 +20,7 @@ export default function () {
         <Routes>
           <Route exact path='/' element={<HomePage/>} />
           <Route exact path='/CartPage' element={<CartPage/>} />
-          <Route exact path='/Loginpage' element={<Loginpage/>} />
+          <Route exact path='/LoginPage' element={<Loginpage/>} />
           <Route exact path='/Menu' element={<Menu/>} />
           <Route exact path='/AccountPage' element={<AccountPage/>} />
           <Route exact path='/AccountSetupPage' element={<AccountSetupPage/>} />

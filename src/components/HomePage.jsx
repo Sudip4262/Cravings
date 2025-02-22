@@ -21,6 +21,7 @@ import { Skeleton, SkeletonCircle, SkeletonText} from '../components/ui/skeleton
 import { IoAddCircle } from "react-icons/io5";
 import { LuSearch } from "react-icons/lu";
 import { FaCaretSquareDown } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
 
 import { db, auth } from './firebase';
 
@@ -50,6 +51,7 @@ export default function HomePage() {
 
 
     const[Recom,setRecom] = useState(data)
+    const[OpeningModal,setOpeningModal]=useState('flex')
     const[SearchActive, setSearchActive] = useState('no')
     const[HotDeals,setHotDeals] = useState([])
     const AuthEmail = useSelector((state) => state.authenticationData.email)
@@ -62,8 +64,9 @@ export default function HomePage() {
     useEffect (() => {
         getData()
         setTimeout(() => {
-            console.log(auth.currentUser)
+            // console.log(auth.currentUser)
             if(auth.currentUser != null){
+                console.log(auth.currentUser.email)
                 dispatch(SetCounterValue(auth.currentUser.email))
                 getAccountData(auth.currentUser.email)
                 dispatch(SetSkeletonView(true))
@@ -71,6 +74,10 @@ export default function HomePage() {
             // console.log("Executed after 1 seconds");
           }, 600);
     },[])
+
+    const AllThingsToDoFirst = () => {
+        setOpeningModal('none')
+    }
 
 
     const getAccountData = async(Email) => {
@@ -317,6 +324,25 @@ const getData = async() => {
     
                     </div>
                 </div>
+
+                {/* Modal */}
+                {/* Modal */}
+
+
+                <div className='HomeMenuModal' style={{display: OpeningModal , height:window.innerHeight}}>
+                    <div className='CardInMiddle'>
+                        <div className='HomePageCross' onClick={()=> {AllThingsToDoFirst()}}>
+                            <ImCross className='HomeCancelIcon'/>
+                        </div>
+                        <div className='HomeMenuModalWholeCard' ></div>
+                    </div>
+                </div>
+
+            {/* Modal */}
+            {/* Modal */}
+
+
+
             </div>
         </>
       )

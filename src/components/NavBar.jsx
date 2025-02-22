@@ -12,7 +12,8 @@ export default function NavBar() {
 
   // const[CurrentEmail,setCurrentEmail] = useState('')
   const AuthEmail = useSelector((state) => state.authenticationData.email)
-
+  const Name = useSelector((state) => state.authenticationData.name)
+  const firstName = Name.split(" ")[0];
 
   // useEffect (() => {
   //         setTimeout(() => {
@@ -24,7 +25,7 @@ export default function NavBar() {
   //           }, 1000);
   //     },[])
 
-
+ 
     return (
       <div className='NavigationBar' style={{height:(window.innerHeight)*10/100}}>
         <Link to={'/'} ><img src={`${process.env.PUBLIC_URL}/photos/Logo.svg`} className='NavBarLogo' /></Link>
@@ -33,12 +34,12 @@ export default function NavBar() {
               <p className='NavBarButtonsText'>Cart</p>
           </Link>
           { AuthEmail == '' ? 
-            <Link className='NavBarButtons' to={'/Loginpage'}>
+            <Link className='NavBarButtons' to={'/LoginPage'}>
               <p className='NavBarButtonsText'>Login</p>
-            </Link>
+            </Link> 
             :
-            <Link className='NavBarButtons' to={'/AccountPage'} state={{email:AuthEmail}}>
-              <p className='NavBarButtonsText'>{AuthEmail.slice(0,4)}...</p>
+            <Link className='NavBarButtons' to={'/AccountPage'}>
+              <p className='NavBarButtonsText'>{firstName}</p>
             </Link>
           }
         </div>
