@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Cravings/static/css/main.5e7660af.css",
-    "main.js": "/Cravings/static/js/main.3dce3ed4.js",
+    "main.css": "/Cravings/static/css/main.df5bafc0.css",
+    "main.js": "/Cravings/static/js/main.87112e0e.js",
     "static/js/488.afb00c70.chunk.js": "/Cravings/static/js/488.afb00c70.chunk.js",
     "index.html": "/Cravings/index.html",
-    "main.5e7660af.css.map": "/Cravings/static/css/main.5e7660af.css.map",
-    "main.3dce3ed4.js.map": "/Cravings/static/js/main.3dce3ed4.js.map",
+    "main.df5bafc0.css.map": "/Cravings/static/css/main.df5bafc0.css.map",
+    "main.87112e0e.js.map": "/Cravings/static/js/main.87112e0e.js.map",
     "488.afb00c70.chunk.js.map": "/Cravings/static/js/488.afb00c70.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e7660af.css",
-    "static/js/main.3dce3ed4.js"
+    "static/css/main.df5bafc0.css",
+    "static/js/main.87112e0e.js"
   ]
 }
