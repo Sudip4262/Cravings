@@ -258,6 +258,8 @@
   border-radius: 20px;
   background-color: #000;
   border: 1px solid #FFF;
+  justify-content: center;
+  align-items: center;
 }
 
 .HomePageCross{
@@ -436,7 +438,7 @@
   overflow-y: scroll;
   width: 100%;
   height: 80%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .CartProceedtoBuyBox{
@@ -1000,4 +1002,38 @@
   margin-top: 5px;
   margin-left: 30px;
   color: #000;
+}
+
+
+
+
+
+
+/* front banner button*/
+/* front banner button*/
+
+.btn-3d {
+  background: transparent;
+  border: 0.5px solid white;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: -6px 8px 5px #382828;
+  transition: all 0.2s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  font-family: "Faculty Glyphic", serif;
+  letter-spacing: 2px;
+}
+
+.btn-3d:hover {
+  transform: translateY(-4px) rotateX(10deg);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-3d:active {
+  transform: translateY(2px) rotateX(-2deg);
+  box-shadow: -4px 6px 5px #382828;
 }

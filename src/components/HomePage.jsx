@@ -5,6 +5,7 @@ import { Link , useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { SetCounterValue } from '../features/counter/CounterSlice';
 import { SetSkeletonView} from '../features/skeletonview/SkeletonView';
+import { SetOpeningCount } from '../features/OpeningCount/OpeningCount';
 import { 
     SetAuthenticationName, 
     SetAuthenticationEmail, 
@@ -51,14 +52,17 @@ export default function HomePage() {
 
 
     const[Recom,setRecom] = useState(data)
-    const[OpeningModal,setOpeningModal]=useState('flex')
     const[SearchActive, setSearchActive] = useState('no')
     const[HotDeals,setHotDeals] = useState([])
     const AuthEmail = useSelector((state) => state.authenticationData.email)
     const PetAddress = useSelector((state) => state.authenticationData.petname)
     const Location = useSelector((state) => state.authenticationData.location)
+    const OpeningCount = useSelector((state) => state.OpeningCount.value)
+    // const DataName = useSelector((state) => state.authenticationData.name)
     // console.log(AuthEmail)
     // console.log(Location)
+
+    console.log("==========> ",OpeningCount)
 
 
     useEffect (() => {
@@ -76,7 +80,7 @@ export default function HomePage() {
     },[])
 
     const AllThingsToDoFirst = () => {
-        setOpeningModal('none')
+        dispatch(SetOpeningCount(1))
     }
 
 
@@ -329,12 +333,14 @@ const getData = async() => {
                 {/* Modal */}
 
 
-                <div className='HomeMenuModal' style={{display: OpeningModal , height:window.innerHeight}}>
+                <div className='HomeMenuModal' style={ OpeningCount == 0? {display:'flex' ,height:window.innerHeight} : {display:'none' ,height:window.innerHeight}}  >
                     <div className='CardInMiddle'>
                         <div className='HomePageCross' onClick={()=> {AllThingsToDoFirst()}}>
                             <ImCross className='HomeCancelIcon'/>
                         </div>
-                        <div className='HomeMenuModalWholeCard' ></div>
+                        <div className='HomeMenuModalWholeCard' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/photos/Landing.png')` , backgroundSize:'cover'}} >
+                            <button className="btn-3d" onClick={()=> {AllThingsToDoFirst()}}>Find your crave</button>
+                        </div>
                     </div>
                 </div>
 
