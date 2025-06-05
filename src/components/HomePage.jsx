@@ -3,7 +3,7 @@ import { Input } from "@chakra-ui/react"
 import { collection, doc, setDoc , getDoc, getDocs } from "firebase/firestore";
 import { Link , useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { SetCounterValue } from '../features/counter/CounterSlice';
+import { SetCounterValue , SetCurrentLogin } from '../features/counter/CounterSlice';
 import { SetSkeletonView} from '../features/skeletonview/SkeletonView';
 import { SetOpeningCount } from '../features/OpeningCount/OpeningCount';
 import { 
@@ -58,6 +58,7 @@ export default function HomePage() {
     const PetAddress = useSelector((state) => state.authenticationData.petname)
     const Location = useSelector((state) => state.authenticationData.location)
     const OpeningCount = useSelector((state) => state.OpeningCount.value)
+    const LoginStatus = useSelector((state) => state.OpeningCount.LoginStatus)
     // const DataName = useSelector((state) => state.authenticationData.name)
     // console.log(AuthEmail)
     // console.log(Location)
@@ -74,6 +75,7 @@ export default function HomePage() {
                 dispatch(SetCounterValue(auth.currentUser.email))
                 getAccountData(auth.currentUser.email)
                 dispatch(SetSkeletonView(true))
+                dispatch(SetCurrentLogin(true))
             }
             // console.log("Executed after 1 seconds");
           }, 600);

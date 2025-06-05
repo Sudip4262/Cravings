@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   value: '',
+  LoginStatus:'false'
 }
 
 export const counterSlice = createSlice({
@@ -11,10 +12,13 @@ export const counterSlice = createSlice({
     SetCounterValue: (state,action) => {
       state.value = action.payload
     },
+    SetCurrentLogin: (state, action) => {
+      state.LoginStatus = action.payload
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { SetCounterValue } = counterSlice.actions
+export const { SetCounterValue, SetCurrentLogin } = counterSlice.actions
 
 export default counterSlice.reducer

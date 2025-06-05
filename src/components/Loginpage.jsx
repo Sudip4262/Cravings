@@ -10,16 +10,22 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { useDispatch, useSelector } from 'react-redux'
+import { SetCurrentLogin } from '../features/counter/CounterSlice'
+import { SetAuthenticationEmail } from '../features/authenticationData/AuthenticationData'
+import { BeatLoader } from "react-spinners"
 
 import { MdOutlineNavigateNext } from "react-icons/md";
 
 
 export default function Loginpage() {
 
+  const dispatch = useDispatch()
+
   const[Email, setEmail] = useState('')
   const[PassWd, setPassWd ] = useState('')
   const[Page,setPage] = useState('Login')
-
+  const LoginStatus = useSelector((state) => state.counter.LoginStatus)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -60,6 +66,8 @@ export default function Loginpage() {
         const user = userCredential.user;
         console.log(user)
         console.log("user is logged in" + user.providerData[0].email)
+        dispatch(SetAuthenticationEmail(user.providerData[0].email))
+        dispatch(SetCurrentLogin(true))
         navigate('/')
         window.location.reload()
       })
@@ -78,34 +86,7 @@ export default function Loginpage() {
 
   if(Page == 'Login'){
     return (
-      <div className='ProfileWhole'>
-      <div className='AddsSection' style={{width: (window.innerWidth - 500)}} >
-        <Swiper
-          // install Swiper modules  
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={0}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
-          style={{height:'100%',width:'100%'}}>
-          <SwiperSlide style={{backgroundColor:'#000', height:'100%' , width:'100%'}}>
-            <img src='https://i.pinimg.com/736x/de/16/a1/de16a1c47cd42fce3957cb18ffd4df18.jpg' style={{height:'100%', width:'100%'}} />
-          </SwiperSlide>
-          <SwiperSlide style={{backgroundColor:'#000', height:'100%' , width:'100%'}}>
-            <img src='https://i.pinimg.com/736x/71/7d/93/717d930dfe836e8bbcd15ddb45faabda.jpg' style={{height:'100%', width:'100%'}} />
-          </SwiperSlide>
-          <SwiperSlide style={{backgroundColor:'#000', height:'100%' , width:'100%'}}>
-            <img src='https://i.pinimg.com/736x/86/d9/64/86d9643db38735c4382f2cfbb747a66a.jpg' style={{height:'100%', width:'100%'}} />
-          </SwiperSlide>
-          <SwiperSlide style={{backgroundColor:'#000', height:'100%' , width:'100%'}}>
-            <img src='https://i.pinimg.com/736x/f5/b3/91/f5b391ae08f34ca283a70c6c81ffe8cd.jpg' style={{height:'100%', width:'100%'}} />
-          </SwiperSlide>
-          ...
-        </Swiper>
-      </div>
+      <div className='ProfileWhole' style={{height: window.innerHeight}}>
       <div className='ProfileSectionWhole' >
           <p className='Captions' >Login</p>
           <Input className='inputs' placeholder="Enter your email" onChange={(txt) => { setEmail(txt.target.value) }} />
@@ -119,12 +100,16 @@ export default function Loginpage() {
     )
   } else if(Page == 'CreateUser'){
     return (
-      <div className='LoginPageWhole' >
+      <div className='LoginPageWhole' style={{height: window.innerHeight}} >
         <p className='Captions' >Sign in</p>
         <div className='LoginCredentials' >
           <Input className='inputs' placeholder="Enter your email" onChange={(cba) => { setEmail(cba.target.value) }} />
           <Input className='inputs' placeholder="Enter your Password" onChange={(cba) => { setPassWd(cba.target.value) }} />
-          <Button className='LoginSubmitButton' onClick={() => {Authentication()}} >
+          <Button className='LoginSubmitButton'  onClick={() => {Authentication()}} 
+          loading
+          colorPalette="blue"
+          spinner={<BeatLoader size={8} color="white" />}
+          >
             <p>Proceed</p>
           </Button>
         </div>

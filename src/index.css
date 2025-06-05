@@ -107,10 +107,12 @@
   visibility: visible;
   position:absolute;
   margin-top: 130px;
-  overflow: scroll;
+  overflow: auto;
   scroll-behavior: smooth;
   padding: 20px;
+  scrollbar-width: none;
 }
+
 .SearchBoxSugg.inactive{
   visibility:hidden;
   position: absolute;
@@ -273,10 +275,12 @@
   margin: 10px;
   border: 1px solid #FFF;
   cursor: pointer;
+  transition: 0.5s ease;
 }
 
 .HomePageCross:hover{
   background-color: #FFF;
+  transform: translateY(-3px) rotateY(180deg);
 }
 
 .HomePageCross:hover .HomeCancelIcon{
@@ -643,6 +647,16 @@
   font-size: 20px;
 }
 
+.LoginSubmitButton:hover{
+  transform: translateY(-5px);
+  opacity: 0.8;
+}
+
+.LoginSubmitButton:active{
+  transform: translateY(5px);
+  opacity: 1;
+}
+
 .LoginNewUser{
   color: #000;
   font-family:"Outfit", sans-serif ;
@@ -650,12 +664,20 @@
   margin-top: 0px;
   margin-bottom: 50px;
   padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-decoration: underline;
+  transition-duration: 100ms;
 }
 
 .LoginNewUser:hover{
   color:#ebebeb;
   background-color: #1c1c1c;
   border-radius: 10px;
+}
+
+.LoginNewUser:active{
+  transform: translateY(5px);
 }
 
 
@@ -685,9 +707,12 @@
   display: flex;
   flex-direction: row;
   justify-content:space-between;
+  justify-content: center;
   align-items:center;
-  background-color: #F1F3F6;
+  background-color: #FFFFFF;
+  scrollbar-width: none;
 }
+
 
 .ProfileEmail{
   font-family: "Outfit", sans-serif ;
@@ -954,6 +979,47 @@
   font-family: "Outfit", sans-serif ;
   font-size: 24px;
   color: #FFF;
+}
+
+.NotLoginCart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.NotLoginText{
+  font-family: "Faculty Glyphic", serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #FFFFFF;
+  /* margin-top: 20px; */
+  margin-top: -50px;
+  margin-bottom: 10px;
+}
+
+.NotLoginCartButton{
+  /* margin: 50px; */
+  margin-top: 0px;
+}
+
+.NotLoginCartButton:hover{
+  transform: translateY(-5px);
+  transition-duration: 150ms;
+  opacity: 0.5;
+}
+
+.NotLoginCartButton:active{
+  transform: translateY(10px);
+}
+
+.NotLoginCartButtonText{
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Faculty Glyphic", serif;
+  color: #000;
 }
 
 
